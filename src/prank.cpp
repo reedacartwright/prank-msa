@@ -24,6 +24,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <unistd.h>
 #include "progressivealignment.h"
 #include "check_version.h"
 #include "prank.h"
@@ -747,8 +748,12 @@ void readArguments(int argc, char *argv[])
     // define a seed for random numbers
     if (rnd_seed>0)
         srand(rnd_seed);
-    else
-        srand(time(0));
+    else {
+        unsigned int v = static_cast<unsigned int>(getpid());
+        v += ((v << 15) + (v >> 3)) + 0x6ba658b3; // Spread 5-decimal PID over 32-bit number
+        v += static_cast<unsigned int>(time(NULL));
+        srand(v);
+    }
 
 
     if (format!=8 && format!=11 && format!=12 && format!=17 && format!=18 && format!=19)

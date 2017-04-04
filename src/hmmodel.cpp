@@ -1510,7 +1510,7 @@ void HMModel::alignmentModel(AncestralNode *tn)
     }
     else
     {
-        cout<<"HMModel::alignmentModel: impossible 'as'"<<cout;
+        cout<<"HMModel::alignmentModel: impossible 'as'"<<endl;
         exit(-1);
     }
 

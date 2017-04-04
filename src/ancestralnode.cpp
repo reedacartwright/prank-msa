@@ -1856,7 +1856,7 @@ void AncestralNode::getIndelEvents(std::vector<indelEvent> *indels)
     vector<int> index;
     for(int i=0;i<parent.length();i++)
     {
-        if(parent.at(i)!='-' && parent.at(i)!='.' || child.at(i)!='-' && child.at(i)!='.')
+        if((parent.at(i)!='-' && parent.at(i)!='.') || (child.at(i)!='-' && child.at(i)!='.'))
             index.push_back(i);
     }
 
@@ -1963,7 +1963,7 @@ void AncestralNode::getIndelEvents(std::vector<indelEvent> *indels)
     index.clear();
     for(int i=0;i<parent.length();i++)
     {
-        if(parent.at(i)!='-' && parent.at(i)!='.' || child.at(i)!='-' && child.at(i)!='.')
+        if((parent.at(i)!='-' && parent.at(i)!='.') || (child.at(i)!='-' && child.at(i)!='.'))
             index.push_back(i);
     }
 
