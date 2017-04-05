@@ -57,7 +57,6 @@ TerminalSequence::TerminalSequence(string* s)
 
     if (CODON)
     {
-
         bool gaps_removed = false;
 
         if (! (PREALIGNED || PARTLYALIGNED || UPDATE) )
@@ -96,18 +95,19 @@ TerminalSequence::TerminalSequence(string* s)
 
         for (int i=0; i<(int)S.length(); i+=3)
         {
-            ci = codons.find(S.substr(i,3))->second;
+            string triplet = S.substr(i,3);
+            if(triplet == "---" || triplet == "...") {
+                continue;
+            }
+            map<string,int>::iterator it = codons.find(triplet);
 
-            if (ci>=0 && ci<sAlpha)
-                charseq += S.substr(i,3);
-            else if (S.substr(i,3)=="---" || S.substr(i,3)=="...")
-                ;
-            else if(i+3<S.length() || PREALIGNED)
+            if(it != codons.end()) {
+                charseq += triplet;
+            } else if( i+3<S.length() || PREALIGNED) {
                 charseq += "NNN";
-            else
-            {
-//                cout<<"removing: "<<S.substr(i,3)<<endl;
-                stop_removed = true;
+            } else {
+                charseq += "NNN";
+                //stop_removed = true;
             }
         }
 

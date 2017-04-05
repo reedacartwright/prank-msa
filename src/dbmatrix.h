@@ -20,7 +20,7 @@
 #ifndef DBMATRIX_H
 #define DBMATRIX_H
 
-#define NDEBUG
+//#define NDEBUG
 
 #ifndef RFOR
 #define RFOR(i,n) for(i=n; i>=0; i--)
