@@ -22,6 +22,7 @@
 #include <cmath>
 #include <ctime>
 #include <fstream>
+#include <iostream>
 #include "hmmodel.h"
 #include "eigen.h"
 
