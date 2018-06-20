@@ -6,15 +6,15 @@
 
 CC            = gcc
 CXX           = g++
-DEFINES       = 
+DEFINES       = -DNDEBUG
 CFLAGS        = -m64 -pipe -g -O2 $(DEFINES)
 CXXFLAGS      = -m64 -pipe -g -O2 $(DEFINES)
 INCPATH       = -I. -I/usr/include
 LINK          = g++
 LFLAGS        = -m64
-LIBS          = $(SUBLIBS)    
+LIBS          = $(SUBLIBS)
 AR            = ar cqs
-RANLIB        = 
+RANLIB        =
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 COPY          = cp -f
